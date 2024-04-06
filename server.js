@@ -13,6 +13,8 @@ const productos = [
     { nombre: 'tomate', imagen: 'tomate.png' }
 ];
 
+let carrito = [];
+
 app.set("view engine", "handlebars"); 
 
 app.engine('handlebars', exphbs.engine({
@@ -25,11 +27,19 @@ app.engine('handlebars', exphbs.engine({
 app.use(express.static(__dirname + '/assets/img'));
 app.use("/bootstrap", express.static(__dirname + "/node_modules/bootstrap/dist/css"));
 app.use("/jquery", express.static(__dirname + "/node_modules/jquery/dist"));
-app.use('/css', express.static(__dirname + '/assets/css'))
+app.use('/css', express.static(__dirname + '/assets/css'));
+app.use('/front', express.static(__dirname + '/assets/js'));
 
 app.get("/", function(req, res) {
     res.render("Main", {
-        productos: productos
+        productos: productos,
+        carrito: carrito
+    });
+});
+
+app.get("/menu", function(req, res) {
+    res.render("menu", {
+        carrito: carrito
     });
 });
 
