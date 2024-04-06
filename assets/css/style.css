@@ -1,0 +1,11 @@
+.producto.seleccionado img {
+    opacity: 0.5;
+}
+
+.modalTamaño{
+    width: 900px;
+}
+
+.modal{
+    padding-right: 380px;
+}

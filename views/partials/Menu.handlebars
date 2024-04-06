@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-success">
+  <div class="container-fluid justify-content-center">
+    <a class="navbar-brand" href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa fa-shopping-cart text-white" aria-hidden="true"></i>
+    </a>
+  </div>
+</nav>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modalTamaño">
+      <div class="row container">
+        {{#each productos}}
+        <div class="col-4 producto">
+          <h3>{{nombre}}</h3>
+          <img src="/{{imagen}}" alt="{{nombre}}">
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
