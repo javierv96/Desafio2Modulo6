@@ -1,8 +1,12 @@
-<div class="row container m-auto">
+<div class="row container m-auto my-4">
     {{#each productos}}
-    <div class="col-4 producto" data-nombre="{{nombre}}">
+    <div class="col-4 producto my-3" data-nombre="{{nombre}}">
         <h3>{{nombre}}</h3>
         <img src="/{{imagen}}" alt="{{nombre}}">
+        <h5 class="text-muted">En carro: {{seleccionado}}</h5>
     </div>
     {{/each}}
+
+        <label class="text-muted">Se hizo lo que se pudo y lo que estaba dentro de mi conocimiento, se agradece comprension. <i class="fa-solid fa-hand-peace"></i></label>
 </div>
+
