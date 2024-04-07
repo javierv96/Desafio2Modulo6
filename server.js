@@ -40,12 +40,14 @@ app.post('/agregar-al-carrito', (req, res) => {
     if (producto) {
         if (!producto.seleccionado) {
             producto.seleccionado = true;
+            console.log("Producto agregado al carrito: " + productoNombre);
             carrito.push(producto);
             console.log(producto.seleccionado);
         } else {
             console.log("El producto ya está en el carrito: " + productoNombre);
         }
-        
+    }else {
+        console.log("El producto no existe: " + productoNombre);
     }
 });
 
@@ -56,17 +58,14 @@ app.post('/quitar-del-carrito', (req, res) => {
         const index = carrito.indexOf(producto);
         if (index !== -1) {
             carrito.splice(index, 1);
-            producto.seleccionado = false; // Cambiar el estado del producto a no seleccionado
+            producto.seleccionado = false;
             console.log("Producto eliminado del carrito: " + productoNombre);
-            res.send('Producto eliminado del carrito.');
             console.log(producto.seleccionado);
         } else {
             console.log("El producto no se encontró en el carrito: " + productoNombre);
-            res.send('El producto no se encontró en el carrito.');
         }
     } else {
         console.log("El producto no existe: " + productoNombre);
-        res.send('El producto no existe.');
     }
 });
 
